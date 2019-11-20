@@ -5,11 +5,13 @@
  */
 package Classes;
 
+import Abstract.Submissao;
+
 /**
  *
  * @author User
  */
-public class Artigo extends Trabalhos {
+public class Artigo extends Submissao {
     private String instituicao[] = new String [7];
     private String palavraChave[] = new String [7];
     private String resumo;

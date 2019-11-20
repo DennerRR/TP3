@@ -2,70 +2,75 @@ package Abstract;
 
 import Interfaces.ISubmissoes;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Denner
  */
 public abstract class Submissao implements ISubmissoes {
-    ArrayList<Submissao> listaSubmissao = new ArrayList();
     
-    protected String tituloSubmissao ;
+    
+    protected String tituloSubmissao;
     protected Situacao situacaoSubmissao;
     protected String autoresSubmissao[] ;
     protected int MAX_AUTORES ;
+    ArrayList<Submissao> listaSubmissao = new ArrayList();
 
-    public Submissao(String tituloSubmissao, Situacao situacaoSubmissao, String[] autoresSubmissao, int MAX_AUTORES) {
-        this.tituloSubmissao = tituloSubmissao;
-        this.situacaoSubmissao = situacaoSubmissao;
-        this.autoresSubmissao = autoresSubmissao;
-        this.MAX_AUTORES = MAX_AUTORES;
+    public Submissao() {
+       listaSubmissao= new ArrayList();
     }
     
-
-    public ArrayList<Submissao> getListaSubmissao() {
-        return listaSubmissao;
+    
+    
+    enum SituacaoSub{
+        Aprovado(1), Reprovado(2),sobAvaliacao(3);
+        protected int valorSituacao;
+    
+        SituacaoSub(int valor){
+            valorSituacao = valor;
+        }
     }
 
-    public void setListaSubmissao(ArrayList<Submissao> listaSubmissao) {
-        this.listaSubmissao = listaSubmissao;
+    @Override
+    public boolean incluir(Submissao submissao) {
+        listaSubmissao.add(submissao);
+        return true;
     }
 
-    public String getTituloSubmissao() {
-        return tituloSubmissao;
+    @Override
+    public Submissao consultarTitulo(String titulo) {
+        for(Submissao subApresentacao : listaSubmissao){
+            if(subApresentacao.tituloSubmissao.equals(titulo)){
+                return subApresentacao;
+            }
+            
+        }
+        return null;
     }
 
-    public void setTituloSubmissao(String tituloSubmissao) {
-        this.tituloSubmissao = tituloSubmissao;
+    @Override
+    public List<Submissao> consultarAutor(String autor) {
+        for(Submissao consultaAutorAp : listaSubmissao){
+            if(consultaAutorAp.autoresSubmissao.equals(autor)){
+                
+               return (List<Submissao>) consultaAutorAp;
+            }
+        }
+        return null;
     }
 
-    public Situacao getSituacaoSubmissao() {
-        return situacaoSubmissao;
+    @Override
+    public boolean excluir(String titulo) {
+       for(Submissao excluirApTitulo : listaSubmissao){
+           if(excluirApTitulo.tituloSubmissao.equals(titulo)){
+               listaSubmissao.remove(excluirApTitulo);
+               return true;
+           }
+       }
+       return false;
     }
-
-    public void setSituacaoSubmissao(Situacao situacaoSubmissao) {
-        this.situacaoSubmissao = situacaoSubmissao;
-    }
-
-    public String[] getAutoresSubmissao() {
-        return autoresSubmissao;
-    }
-
-    public void setAutoresSubmissao(String[] autoresSubmissao) {
-        this.autoresSubmissao = autoresSubmissao;
-    }
-
-    public int getMAX_AUTORES() {
-        return MAX_AUTORES;
-    }
-
-    public void setMAX_AUTORES(int MAX_AUTORES) {
-        this.MAX_AUTORES = MAX_AUTORES;
-    }
-    @Override 
-    public String toString() {
-        return "Submissao{" + "tituloSubmissao=" + tituloSubmissao + ", situacaoSubmissao=" + situacaoSubmissao + ", autoresSubmissao=" + autoresSubmissao + ", MAX_AUTORES=" + MAX_AUTORES + '}';
-    }
+    
     
 }
 

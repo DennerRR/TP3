@@ -11,30 +11,29 @@ public class SubmissaoCientifica extends Submissao {
     protected String instituicao[];
     protected String palavraChave[];
 
-    public SubmissaoCientifica(String tituloSubmissao, Situacao situacaoSubmissao, String[] autoresSubmissao, int MAX_AUTORES) {
-        super(tituloSubmissao, situacaoSubmissao, autoresSubmissao, MAX_AUTORES);
+    public SubmissaoCientifica(String[] instituicao, String[] palavraChave) {
+        this.instituicao = instituicao;
+        this.palavraChave = palavraChave;
+    }
+    
+    
+
+    public String[] getInstituicao() {
+        return instituicao;
     }
 
-    @Override
-    public boolean incluir(Submissao submissao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
+    public void setInstituicao(String[] instituicao) {
+        this.instituicao = instituicao;
     }
 
-    @Override
-    public Submissao consultarTitulo(String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String[] getPalavraChave() {
+        return palavraChave;
     }
 
-    @Override
-    public List<Submissao> consultarAutor(String autor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setPalavraChave(String[] palavraChave) {
+        this.palavraChave = palavraChave;
     }
 
-    @Override
-    public boolean excluir(String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public String toString() {

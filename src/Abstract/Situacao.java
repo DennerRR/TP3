@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Abstract;
 
 /**
@@ -10,6 +5,14 @@ package Abstract;
  * @author User
  */
 public abstract class Situacao {
+    public final int aprovado = 1;
+    public final int reprovado = 2;
+    public final int sobAvaliacao = 3;
     
     public abstract void aprovado();
+    
+    public abstract void reprovado();
+    
+    public abstract void sobAvaliacao();
+    
 }
