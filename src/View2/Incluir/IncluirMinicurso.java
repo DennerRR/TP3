@@ -7,8 +7,8 @@ package View2.Incluir;
 
 import Categoria.Artigo;
 import Categoria.Minicurso;
-import Submissão.ListaSubmissao;
 import SituacaoTipo.Situacao;
+import Submissão.ListaSubmissao;
 
 import javax.swing.JOptionPane;
 
@@ -177,6 +177,7 @@ public class IncluirMinicurso extends javax.swing.JInternalFrame {
         minicurso.setAbs(jTextField5.getText());
         minicurso.setMetodologia(jTextField6.getText());
         minicurso.setRecursos(jTextField7.getText());
+        minicurso.setSituacaoSubmissao((Situacao) jComboBox1.getSelectedItem());
         
        listaSub.incluir(minicurso);
        
