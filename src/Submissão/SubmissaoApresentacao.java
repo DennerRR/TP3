@@ -1,14 +1,23 @@
-package Abstract;
+package Submissão;
 
+ import SituacaoTipo.Situacao;
 
 /**
  *
  * @author Denner
  */
-public class SubmissaoApresentacao extends Submissao {
+public abstract class SubmissaoApresentacao extends Submissao {
     protected String resumo;
     protected String abs;
     protected int duracao;
+
+    public SubmissaoApresentacao(String tituloSubmissao, Situacao situacaoSubmissao, String autoresSubmissao[],
+            int MAX_AUTORES, String resumo, String abs, int duracao) {
+        super(tituloSubmissao, situacaoSubmissao, autoresSubmissao, MAX_AUTORES);
+        this.resumo = resumo;
+        this.abs = abs;
+        this.duracao = duracao;
+    }
 
     public String getResumo() {
         return resumo;
