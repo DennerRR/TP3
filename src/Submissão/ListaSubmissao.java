@@ -15,6 +15,7 @@ import java.util.List;
  * @author User
  */
 public abstract class ListaSubmissao implements ISubmissoes {
+    
     private ArrayList<Submissao> listaSub = new ArrayList<>();
     
     @Override
